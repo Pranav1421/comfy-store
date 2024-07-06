@@ -8,7 +8,7 @@ export const action = async ({ request }) => {
   const data = Object.fromEntries(formData);
 
   try {
-    const response = await axios.post('https://gvlsg0p01c.execute-api.us-east-1.amazonaws.com/dev', data);
+    const response = await axios.post('https://zli1ym2ri1.execute-api.us-east-1.amazonaws.com/dev', data);
     toast.success('account created successfully');
     return redirect('/login');
   } catch (error) {
