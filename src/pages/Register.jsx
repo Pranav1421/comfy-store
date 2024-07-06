@@ -2,13 +2,14 @@ import { FormInput, SubmitBtn } from '../components';
 import { Form, Link, redirect } from 'react-router-dom';
 import { customFetch } from '../utils';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
 
   try {
-    const response = await customFetch.post('/auth/local/register', data);
+    const response = await axios.post('https://zli1ym2ri1.execute-api.us-east-1.amazonaws.com/dev/', data);
     toast.success('account created successfully');
     return redirect('/login');
   } catch (error) {
@@ -19,7 +20,7 @@ export const action = async ({ request }) => {
     return null;
   }
 };
-
+// https://zli1ym2ri1.execute-api.us-east-1.amazonaws.com/dev/
 const Register = () => {
   return (
     <section className='h-screen grid place-items-center'>
