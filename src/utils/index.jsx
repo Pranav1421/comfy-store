@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const productionUrl = ' https://strapi-store-server.onrender.com/api';
+const productionUrl = ' https://zli1ym2ri1.execute-api.us-east-1.amazonaws.com/dev';
 
 export const customFetch = axios.create({
   baseURL: productionUrl,
