@@ -2,13 +2,13 @@ import { FormInput, SubmitBtn } from '../components';
 import { Form, Link, redirect } from 'react-router-dom';
 import { customFetch } from '../utils';
 import { toast } from 'react-toastify';
-
+import axios from 'axios';
 export const action = async ({ request }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
 
   try {
-    const response = await customFetch.post('/', data);
+    const response = await axios.post('https://gvlsg0p01c.execute-api.us-east-1.amazonaws.com/dev', data);
     toast.success('account created successfully');
     return redirect('/login');
   } catch (error) {
