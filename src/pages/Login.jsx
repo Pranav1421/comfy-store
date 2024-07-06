@@ -12,7 +12,7 @@ export const action =
     const data = Object.fromEntries(formData);
 
     try {
-      const response = await customFetch.post('/auth/local', data);
+      const response = await customFetch.post('https://gvlsg0p01c.execute-api.us-east-1.amazonaws.com/dev', data);
       store.dispatch(loginUser(response.data));
       toast.success('logged in successfully');
       return redirect('/');
