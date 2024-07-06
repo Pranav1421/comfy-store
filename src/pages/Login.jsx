@@ -4,7 +4,7 @@ import { customFetch } from '../utils';
 import { toast } from 'react-toastify';
 import { loginUser } from '../features/user/userSlice';
 import { useDispatch } from 'react-redux';
-
+import axios from 'axios';
 export const action =
   (store) =>
   async ({ request }) => {
@@ -12,7 +12,7 @@ export const action =
     const data = Object.fromEntries(formData);
 
     try {
-      const response = await customFetch.post('https://gvlsg0p01c.execute-api.us-east-1.amazonaws.com/dev', data);
+      const response = await axios.post('https://gvlsg0p01c.execute-api.us-east-1.amazonaws.com/dev', data);
       store.dispatch(loginUser(response.data));
       toast.success('logged in successfully');
       return redirect('/');
